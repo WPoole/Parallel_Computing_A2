@@ -16,8 +16,9 @@ public class Filter implements Lock {
 		this.level = new int[n];
 		this.victim = new int[n]; // Use 1 to n-1.
 		this.n = n;
-		for(int i=0; i<n; i++) {
-			level[i] = 0;
+		
+		for(int i = 0; i < n; i++) {
+			this.level[i] = 0;
 		}
 	}
 
@@ -32,7 +33,7 @@ public class Filter implements Lock {
 		}
 	}
 
-	public boolean thereIsThreadTryingToEnterHigherLevel(int threadId) {
+	private boolean thereIsThreadTryingToEnterHigherLevel(int threadId) {
 		int myLevel = level[threadId];
 		for(int k = 0; k < n; k++) {
 			if(k == threadId) { // Want to skip ourselves.

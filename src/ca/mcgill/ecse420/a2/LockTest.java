@@ -27,8 +27,9 @@ public class LockTest {
 
 	public static void main(String[] args) {
 		Filter filterLock = new Filter(numThreads);
+		Bakery bakeryLock = new Bakery(numThreads);
 		GarbageLock garbageLock = new GarbageLock();
-		ReentrantLock lock = new ReentrantLock();
-		testIncrement(filterLock);
+		
+		testIncrement(garbageLock);
 	}
 }
